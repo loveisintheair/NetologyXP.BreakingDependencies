@@ -17,7 +17,7 @@ function createEmployee() {
 
     function dispatchPay(timesheet, payRate) {
         var amount = createMoney();
-        for (var i = 0; i < timesheet.length; i++){
+        for (var i = 0; i < timesheet.length; i++) {
             var time = timesheet[i];
             amount.add(time.getHours() * payRate)
         }
