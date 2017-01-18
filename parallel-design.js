@@ -8,7 +8,3 @@ class Contract {
         // Some messy legacy, which is hard to test anf decouple.
     }
 }
-
-class ContractNew {
-
-}
