@@ -1,41 +1,6 @@
 "use strict";
-// Домашнее задание:
-// Бизнес поставил вам задачу добавить новую возможность в код (какую - написано ниже)
-// Сначала разорвите зависимость так, чтобы можно было запустить тесты на старый код
-// Затем подготовьте код к изменениям, рефакторя маленькими шагами
-// В конце добавьте новую функциональность
 
-// Введение в бизнес:
-// Вы разрабатываете ПО для сети магазинов в США
-// Налоговое законодательство здесь строгое и индивидуально для каждого штата
-// Налог на товар складывается из базовой ставки и дополнительной ставки по категориям товаров
-// Для некоторых категорий товаров налог отменяется полностью
-// Для некоторых категорий товаров дополнительной ставки нет
-// ----
-// Сеть расширяется и вас просят добавить новые штаты каждую неделю
-// Сегодня вам надо будет добавить два штата:
-// Tennessee и Texas
-// В Tennessee (Базовая ставка: 7%, Groceries: +5%, Prepared food: базовая, Prescription drug: базовая )
-// В Texas (Базовая ставка: 6.25%, Groceries: налога нет, Prepared food: базовая, Prescription drug: налога нет )
-
-// Вопросы и Ответы:
-// Как запустить тесты?
-// Закомментируейте вызов production(), раскомментируйте runTest(), запустите файл
-
-// Какие зависимости разрывать?
-// Посмотрите на тесты. Они уже ожидают функцию, которая считает сумму с налогом.
-// Двигайтесь в этом направлении
-
-// На что будет обращаться внимание при проверке?
-// Главный критерий - удобство добавления новых штатов
-// Следующие по важности:
-// Читаемость кода
-// Наличие очевидных smell'ов
-// Частые коммиты, тесты проходят после кадого коммита
-
-//############################
 // Этот код можно менять как угодно
-
 var items = {
     "milk": {price: 5.5, type: "Groceries"},
     "eggs": {price: 3.0, type: "Groceries"},
@@ -115,7 +80,7 @@ class TaxCalculator {
 
 //############################
 //Production - код:
-production();
+calculateTaxes();
 
 //############################
 //Тесты:
@@ -126,13 +91,14 @@ var tests = [
     () => assertEquals(6.7 * (1 + 0.0), calculatePriceFor("California", "amoxicillin")),
     () => assertEquals(2 * (1 + 0.0635), calculatePriceFor("Connecticut", "hamburger")),
 ];
+
 //Раскомментируйте следующую строчку для запуска тестов:
-//runTests (tests);
+//runAllTests (tests);
 
 //############################
 //Код ниже этой строчки не надо менять для выполнения домашней работы
 
-function production() {
+function calculateTaxes() {
     var calculator = new TaxCalculator();
     calculator.calculateTax();
 }
@@ -158,13 +124,13 @@ function assertEquals(expected, actual) {
     var epsilon = 0.000001;
     var difference = Math.abs(expected - actual);
     if (difference > epsilon || difference === undefined || isNaN(difference)) {
-        console.log(`Fail! Expected: ${expected}, Actual: ${actual}`);
+        console.error(`Fail! Expected: ${expected}, Actual: ${actual}`);
         return -1;
     }
     return 0;
 }
 
-function runTests(tests) {
+function runAllTests(tests) {
     var failedTests = tests
         .map((f) => f())
         .map((code) => {
@@ -180,7 +146,6 @@ function runTests(tests) {
         console.log(`Success: ${tests.length} tests pass`);
     }
     else {
-        console.log(`Fail: ${failedTests} tests failed`);
+        console.error(`Fail: ${failedTests} tests failed`);
     }
 }
-
