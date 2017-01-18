@@ -16,6 +16,14 @@ class Employee {
 }
 
 class Money {
+    add(sum) {
+        //
+    }
+}
 
+class PaymentService {
+    pay(employee, amountUsd) {
+
+    }
 }
 
