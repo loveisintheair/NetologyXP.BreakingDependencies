@@ -1,11 +1,23 @@
 "use strict";
 
 class Printer {
-    print(message) {
+    printHeader() {
+        console.log('-----Header-----');
+    }
+
+    printBody(message) {
+        this.printHeader();
+
+        // Some logic that we want to test
         // ...
+        //
 
         console.log(message);
 
-        //...
+        this.printFooter();
+    }
+
+    printFooter() {
+        console.log('-----Footer-----')
     }
 }
