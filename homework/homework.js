@@ -143,9 +143,9 @@ function runAllTests(tests) {
         .reduce((a, b) => a + b, 0);
 
     if (failedTests === 0) {
-        console.log(`Success: ${tests.length} tests pass`);
+        console.log(`Success: ${tests.length} tests passed.`);
     }
     else {
-        console.error(`Fail: ${failedTests} tests failed`);
+        console.error(`Fail: ${failedTests} tests failed.`);
     }
 }

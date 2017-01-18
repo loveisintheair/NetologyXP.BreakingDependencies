@@ -2,7 +2,7 @@
 
 class Printer {
     printHeader() {
-        console.log('-----Header-----');
+        this._printLine('-----Header-----');
     }
 
     printBody(message) {
@@ -10,14 +10,43 @@ class Printer {
 
         // Some logic that we want to test
         // ...
-        //
+        // message = formatMessage();
 
-        console.log(message);
+        this._printLine(message);
 
         this.printFooter();
+
+
+        var terminal = this.createTerminal();
+    }
+
+    createTerminal() {
+        return new Terminal();
     }
 
     printFooter() {
-        console.log('-----Footer-----')
+        this._printLine('-----Footer-----')
+    }
+
+    _printLine(line) {
+        console.log(line);
+    }
+}
+
+class TestablePrinter extends Printer {
+    constructor() {
+        this._lastPrintedLine = '';
+    }
+
+    _printLine(line) {
+        this._lastPrintedLine = line;
+    }
+
+    get lastPrintedLine() {
+        return this._lastPrintedLine;
+    }
+
+    createTerminal() {
+
     }
 }

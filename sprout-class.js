@@ -1,6 +1,10 @@
 "use strict";
 
 class CustomerRentalReport {
+    constructor(headerBuilder) {
+        this._headerBuilder = headerBuilder;
+    }
+
     htmlStatement(customerArg, movies) {
         const customer = new Customer(customerArg, movies);
 
@@ -9,7 +13,9 @@ class CustomerRentalReport {
         const movie = (aRental) => aRental.movie;
         const rentalAmount = (aRental) => aRental.amount;
 
-        let result = `<h1>Rental Record for <em>${customer.name}</em></h1>\n`;
+        //let result = `<h1>Rental Record for <em>${customer.name}</em></h1>\n`;
+        let result = this._headerBuilder.buildHeader(customer);
+
         result += "<table>\n";
         for (let rental of customer.rentals) {
             result += `  <tr><td>${movie(rental).title}</td><td>${rentalAmount(rental)}</td></tr>\n`;
@@ -19,6 +25,12 @@ class CustomerRentalReport {
         result += `<p>You earned <em>${frequentRenterPoints()}</em> frequent renter points</p>\n`;
 
         return result;
+    }
+}
+
+class ReportHeaderBuilder {
+    buildHeader(customer) {
+        return `<h1>Rental Record for <em>${customer.name}</em></h1>\n`;
     }
 }
 
