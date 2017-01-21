@@ -78,9 +78,15 @@ class TaxCalculator {
     }
 }
 
+function calculatePriceFor(state, itemName) {
+    return 0;
+}
+
+
+
 //############################
 //Production - код:
-calculateTaxes();
+//calculateTaxes();
 
 //############################
 //Тесты:
@@ -93,7 +99,7 @@ var tests = [
 ];
 
 //Раскомментируйте следующую строчку для запуска тестов:
-//runAllTests (tests);
+runAllTests (tests);
 
 //############################
 //Код ниже этой строчки не надо менять для выполнения домашней работы
