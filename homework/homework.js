@@ -84,7 +84,8 @@ class TaxCalculator {
 }
 
 function calculatePriceFor(state, itemName) {
-    return 0;
+    let calculator = new TaxCalculator();
+    return calculator.calculateTaxForItem(itemName, state);
 }
 
 
