@@ -131,6 +131,9 @@ var tests = [
     () => assertEquals(6.7 * (1 + 0.0), calculatePriceFor("Alaska", "amoxicillin")),
     () => assertEquals(6.7 * (1 + 0.0), calculatePriceFor("California", "amoxicillin")),
     () => assertEquals(2 * (1 + 0.0635), calculatePriceFor("Connecticut", "hamburger")),
+
+    () => assertEquals(0.007, taxRepository.getBaseTax("Tennessee")),
+    () => assertEquals(0.00625, taxRepository.getBaseTax("Texas")),
 ];
 
 //Раскомментируйте следующую строчку для запуска тестов:
