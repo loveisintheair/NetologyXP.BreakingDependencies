@@ -35,6 +35,10 @@ class TaxRepository {
                 }
 
                 this.data[state].categoryModificators[categoryName] = category[state];
+
+                if (typeof this.data[state].categoryModificators['Prepared Food'] === 'undefined') {
+                    this.data[state].categoryModificators['Prepared Food'] = 0;
+                }
             }
         }
     }
