@@ -9,6 +9,10 @@ class TaxRepository {
         return this.data[state].base;
     }
 
+    getItemTypeModifier(state, itemType) {
+        return this.data[state].categoryModificators[itemType];
+    }
+
     loadLegacyBaseRates(rates) {
         for (let state in rates) {
             if (!this.data[state]) {
