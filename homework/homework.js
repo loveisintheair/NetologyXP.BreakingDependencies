@@ -93,14 +93,7 @@ class TaxCalculator {
     }
 
     calculateTaxForItem(item, state) {
-        var result = null;
-        if (items[item].type === "PreparedFood") {
-            result = ( 1 + taxRepository.getBaseTax(state) ) * items[item].price;
-        }
-        else {
-            result = calculateTax(state, items[item].type) * items[item].price + items[item].price;
-        }
-        return result;
+        return calculateTax(state, items[item].type) * items[item].price + items[item].price;
     }
 }
 
