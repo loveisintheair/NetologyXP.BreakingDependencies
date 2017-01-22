@@ -68,7 +68,7 @@ let taxRepository = new TaxRepository(stateTaxesData);
 taxRepository.loadLegacyBaseRates(baseTaxes);
 
 
-function calc(state, itemType) {
+function calculateTax(state, itemType) {
 
     var itemTypeTaxModifier = itemTypes[itemType];
     if (itemTypeTaxModifier[state] === "") {
@@ -98,7 +98,7 @@ class TaxCalculator {
             result = ( 1 + taxRepository.getBaseTax(state) ) * items[item].price;
         }
         else {
-            result = calc(state, items[item].type) * items[item].price + items[item].price;
+            result = calculateTax(state, items[item].type) * items[item].price + items[item].price;
         }
         return result;
     }
