@@ -71,9 +71,19 @@ class TaxRepository {
     getBaseTax(state) {
         return this.data[state].base;
     }
+
+    loadLegacyBaseRates(rates) {
+        for (let state in rates) {
+            if (!this.data[state]) {
+                this.data[state] = {};
+            }
+            this.data[state].base = rates[state];
+        }
+    }
 }
 
 let taxRepository = new TaxRepository(stateTaxesData);
+taxRepository.loadLegacyBaseRates(baseTaxes);
 
 
 function getBaseTax(state) {
