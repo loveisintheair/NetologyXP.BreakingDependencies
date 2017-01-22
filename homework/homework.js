@@ -97,7 +97,11 @@ class TaxCalculator {
     }
 
     _calculateTax(state, itemType) {
-        return calculateTax(state, itemType);
+        var itemTypeTaxModifier = taxRepository.getItemTypeModifier(state, itemType);
+        if (itemTypeTaxModifier === "") {
+            return 0;
+        }
+        return taxRepository.getBaseTax(state) + itemTypeTaxModifier;
     }
 }
 
