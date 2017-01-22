@@ -138,6 +138,8 @@ var tests = [
 
     () => assertEquals(0.007, taxRepository.getBaseTax("Tennessee")),
     () => assertEquals(0.00625, taxRepository.getBaseTax("Texas")),
+    () => assertEquals(0.0075, taxRepository.getBaseTax("California")),
+    () => assertEquals(0, taxRepository.getBaseTax("Alaska")),
 ];
 
 //Раскомментируйте следующую строчку для запуска тестов:
