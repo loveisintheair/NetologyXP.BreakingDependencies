@@ -87,7 +87,7 @@ taxRepository.loadLegacyBaseRates(baseTaxes);
 
 
 function getBaseTax(state) {
-    return baseTaxes[state];
+    return taxRepository.getBaseTax(state);
 }
 
 function calc(state, itemType) {
