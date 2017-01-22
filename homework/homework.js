@@ -46,7 +46,7 @@ const baseTaxes = {
 
 const stateTaxesData = {
     "Tennessee": {
-        "base": 0.007,
+        "base": 0.07,
         "categoryModificators": {
             "Groceries": 0.005,
             "Prepared food": 0,
@@ -54,7 +54,7 @@ const stateTaxesData = {
         }
     },
     "Texas": {
-        "base": 0.00625,
+        "base": 0.0625,
         "categoryModificators": {
             "Groceries": "",
             "Prepared food": 0,
@@ -146,9 +146,9 @@ var tests = [
     () => assertEquals(6.7 * (1 + 0.0), calculatePriceFor("California", "amoxicillin")),
     () => assertEquals(2 * (1 + 0.0635), calculatePriceFor("Connecticut", "hamburger")),
 
-    () => assertEquals(0.007, taxRepository.getBaseTax("Tennessee")),
-    () => assertEquals(0.00625, taxRepository.getBaseTax("Texas")),
-    () => assertEquals(0.0075, taxRepository.getBaseTax("California")),
+    () => assertEquals(0.07, taxRepository.getBaseTax("Tennessee")),
+    () => assertEquals(0.0625, taxRepository.getBaseTax("Texas")),
+    () => assertEquals(0.075, taxRepository.getBaseTax("California")),
     () => assertEquals(0, taxRepository.getBaseTax("Alaska")),
 ];
 
