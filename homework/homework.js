@@ -95,6 +95,10 @@ class TaxCalculator {
     calculatePriceWithTaxesForItem(item, state) {
         return calculateTax(state, items[item].type) * items[item].price + items[item].price;
     }
+
+    _calculateTax(state, itemType) {
+        return calculateTax(state, itemType);
+    }
 }
 
 function calculatePriceFor(state, itemName) {
