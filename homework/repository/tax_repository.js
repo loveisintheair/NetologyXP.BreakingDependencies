@@ -37,8 +37,6 @@ class TaxRepository {
                 this.data[state].categoryModificators[categoryName] = category[state];
             }
         }
-
-        console.log(this.data);
     }
 }
 
