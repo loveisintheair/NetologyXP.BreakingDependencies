@@ -48,7 +48,7 @@ const stateTaxesData = {
     "Tennessee": {
         "base": 0.07,
         "categoryModificators": {
-            "Groceries": 0.005,
+            "Groceries": 0.05,
             "Prepared food": 0,
             "Prescription drug": 0
         }
