@@ -86,17 +86,13 @@ let taxRepository = new TaxRepository(stateTaxesData);
 taxRepository.loadLegacyBaseRates(baseTaxes);
 
 
-function getBaseTax(state) {
-    return taxRepository.getBaseTax(state);
-}
-
 function calc(state, itemType) {
 
     var itemTypeTaxModifier = itemTypes[itemType];
     if (itemTypeTaxModifier[state] === "") {
         return 0;
     }
-    return getBaseTax(state) + itemTypeTaxModifier[state];
+    return taxRepository.getBaseTax(state) + itemTypeTaxModifier[state];
 }
 
 class TaxCalculator {
@@ -117,7 +113,7 @@ class TaxCalculator {
     calculateTaxForItem(item, state) {
         var result = null;
         if (items[item].type === "PreparedFood") {
-            result = ( 1 + getBaseTax(state) ) * items[item].price;
+            result = ( 1 + taxRepository.getBaseTax(state) ) * items[item].price;
         }
         else {
             result = calc(state, items[item].type) * items[item].price + items[item].price;
