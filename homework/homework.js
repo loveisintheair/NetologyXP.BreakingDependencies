@@ -49,7 +49,7 @@ const stateTaxesData = {
         "base": 0.07,
         "categoryModificators": {
             "Groceries": 0.05,
-            "Prepared food": 0,
+            "PreparedFood": 0,
             "Prescription drug": 0
         }
     },
@@ -57,7 +57,7 @@ const stateTaxesData = {
         "base": 0.0625,
         "categoryModificators": {
             "Groceries": "",
-            "Prepared food": 0,
+            "PreparedFood": 0,
             "Prescription drug": ""
         }
     }
@@ -130,9 +130,9 @@ var tests = [
     () => assertEquals(0, taxRepository.getBaseTax("Alaska")),
 
     () => assertEquals(0.05, taxRepository.getItemTypeModifier("Tennessee", "Groceries")),
-    () => assertEquals(0, taxRepository.getItemTypeModifier("Texas", "Prepared food")),
+    () => assertEquals(0, taxRepository.getItemTypeModifier("Texas", "PreparedFood")),
 
-    () => assertEquals(0, taxRepository.getItemTypeModifier("Connecticut", "Prepared Food")),
+    () => assertEquals(0, taxRepository.getItemTypeModifier("Connecticut", "PreparedFood")),
     () => assertEquals(0.015, taxRepository.getItemTypeModifier("Arkansas", "Groceries")),
     () => assertEquals("", taxRepository.getItemTypeModifier("California", "Groceries")),
 
