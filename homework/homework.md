@@ -14,7 +14,7 @@
 ## Новое требование
   - Сеть расширяется и вас просят добавить новые штаты каждую неделю
   - Сегодня вам надо будет добавить два штата: Tennessee и Texas
-    - Tennessee: Базовая ставка: 7%, Groceries: +5%, Prepared food: базовая ставка, Prescription drug: базовая ставка
+        - Tennessee: Базовая ставка: 7%, Groceries: +5%, Prepared food: базовая ставка, Prescription drug: базовая ставка
     - Texas: Базовая ставка: 6.25%, Groceries: налога нет, Prepared food: базовая ставка, Prescription drug: налога нет 
 
 ## Запуск тестов (пока по-колхозному)

@@ -44,6 +44,25 @@ const baseTaxes = {
     "Connecticut": 0.0635
 };
 
+const stateTaxesData = {
+    "Tennessee": {
+        "base": 0.007,
+        "categoryModificators": {
+            "Groceries": 0.005,
+            "Prepared food": 0,
+            "Prescription drug": 0
+        }
+    },
+    "Texas": {
+        "base": 0.00625,
+        "categoryModificators": {
+            "Groceries": "",
+            "Prepared food": 0,
+            "Prescription drug": ""
+        }
+    }
+}
+
 function getBaseTax(state) {
     return baseTaxes[state];
 }
