@@ -86,20 +86,20 @@ class TaxCalculator {
         console.log(`----------${state}-----------`);
         for (var i = 0; i < ordersCount; i++) {
             var item = getSelectedItem();
-            var result = this.calculateTaxForItem(item, state);
+            var result = this.calculatePriceWithTaxesForItem(item, state);
             console.log(`${item}: $${result.toFixed(2)}`);
         }
         console.log(`----Have a nice day!-----`);
     }
 
-    calculateTaxForItem(item, state) {
+    calculatePriceWithTaxesForItem(item, state) {
         return calculateTax(state, items[item].type) * items[item].price + items[item].price;
     }
 }
 
 function calculatePriceFor(state, itemName) {
     let calculator = new TaxCalculator();
-    return calculator.calculateTaxForItem(itemName, state);
+    return calculator.calculatePriceWithTaxesForItem(itemName, state);
 }
 
 
