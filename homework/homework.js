@@ -69,14 +69,6 @@ taxRepository.loadLegacyBaseRates(baseTaxes);
 taxRepository.loadLegacyCategoryModificators(itemTypes);
 
 
-function calculateTax(state, itemType) {
-    var itemTypeTaxModifier = taxRepository.getItemTypeModifier(state, itemType);
-    if (itemTypeTaxModifier === "") {
-        return 0;
-    }
-    return taxRepository.getBaseTax(state) + itemTypeTaxModifier;
-}
-
 class TaxCalculator {
     // У этой функции нелья менять интерфейс
     // Но можно менять содержимое
