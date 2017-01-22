@@ -69,8 +69,7 @@ taxRepository.loadLegacyBaseRates(baseTaxes);
 taxRepository.loadLegacyCategoryModificators(itemTypes);
 
 function getItemTypeTaxModifier(state, itemType) {
-    var itemTypeTaxModifier = itemTypes[itemType];
-    return itemTypeTaxModifier[state];
+    return taxRepository.getItemTypeModifier(state, itemType);
 }
 
 
