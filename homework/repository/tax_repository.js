@@ -15,11 +15,7 @@ class TaxRepository {
 
     loadLegacyBaseRates(rates) {
         for (let state in rates) {
-            if (!this.data[state]) {
-                this.data[state] = {
-                    categoryModificators: {}
-                };
-            }
+            this.initItem(state);
             this.data[state].base = rates[state];
         }
     }
@@ -28,11 +24,7 @@ class TaxRepository {
         for (let categoryName in categories) {
             let category = categories[categoryName];
             for (let state in category) {
-                if (!this.data[state]) {
-                    this.data[state] = {
-                        categoryModificators: {}
-                    };
-                }
+                this.initItem(state);
 
                 this.data[state].categoryModificators[categoryName] = category[state];
 
@@ -40,6 +32,14 @@ class TaxRepository {
                     this.data[state].categoryModificators['Prepared Food'] = 0;
                 }
             }
+        }
+    }
+
+    initItem(state) {
+        if (!this.data[state]) {
+            this.data[state] = {
+                categoryModificators: {}
+            };
         }
     }
 }
