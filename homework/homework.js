@@ -63,6 +63,15 @@ const stateTaxesData = {
     }
 }
 
+class TaxRepository {
+    constructor(data) {
+        this.data = data
+    }
+}
+
+let taxRepository = new TaxRepository(stateTaxesData);
+
+
 function getBaseTax(state) {
     return baseTaxes[state];
 }
