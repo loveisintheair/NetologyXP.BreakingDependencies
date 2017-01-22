@@ -66,6 +66,7 @@ const stateTaxesData = {
 const TaxRepository = require('./repository/tax_repository');
 let taxRepository = new TaxRepository(stateTaxesData);
 taxRepository.loadLegacyBaseRates(baseTaxes);
+taxRepository.loadLegacyCategoryModificators(itemTypes);
 
 function getItemTypeTaxModifier(state, itemType) {
     var itemTypeTaxModifier = itemTypes[itemType];
